@@ -1,0 +1,27 @@
+{
+  "name": "@spamshaker/pkg1",
+  "version": "2.0.0",
+  "description": "> TODO: description",
+  "author": "RIA-DEVELOP <github@ria-develop.pl>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/pkg1.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/spamshaker/lerna-playground.git",
+    "directory": "packages/pkg1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}
