@@ -1,0 +1,7 @@
+{
+  "name": "module-lib",
+  "version": "1.0.0",
+  "dependencies": {
+    "module-vendors": "*"
+  }
+}

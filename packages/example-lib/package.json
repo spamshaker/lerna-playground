@@ -1,0 +1,58 @@
+{
+  "name": "@lerna-playground/example-lib",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "Michał <git@ria-develop.pl>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "dist/example-lib.min.js",
+  "esnext": {
+    "main": "./src/index.ts"
+  },
+  "types": "types",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist",
+    "src",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@fontsource/roboto": "^4.5.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@lerna-playground/jest-preset": "^1.0.0",
+    "@lerna-playground/webpack-config": "^1.0.0",
+    "@lerna-playground/react-typescript": "^1.0.0",
+    "typescript": ">= 4",
+    "webpack-cli": "^4.9.1"
+  },
+  "scripts": {
+    "build": "webpack --progress",
+    "watch": "webpack --watch --progress",
+    "serve": "webpack serve",
+    "start": "webpack --watch",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "jest": {
+    "preset": "@lerna-playground/jest-preset"
+  }
+}

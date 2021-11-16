@@ -1,0 +1,11 @@
+{
+  "name": "fixtures",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">= 12.10.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

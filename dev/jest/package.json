@@ -1,0 +1,23 @@
+{
+  "name": "@lerna-playground/jest-preset",
+  "version": "1.0.0",
+  "main": "jest-preset.js",
+  "bin": {
+    "jest": "node_modules/.bin/jest"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "typescript": ">= 4"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@types/jest": "^27.0.2",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7"
+  },
+  "devDependencies": {
+    "@lerna-playground/react-typescript": "file:../react-typescript"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "name": "@lerna-playground/webpack-config",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "jsnext:main": "src/index.ts",
+  "scripts": {
+    "clean": "bash -c 'rm -rf {dist,types}'",
+    "build": "tsc -p ./tsconfig.build.json",
+    "postbuild": "eslint ./types --fix && eslint ./declarations --rule \"@typescript-eslint/no-explicit-any: off\" --fix",
+    "start": "npm run build -- -w",
+    "postinstall": "json2ts schemas/PackageJson.json --style.singleQuote --unknownAny > declarations/PackageJson.d.ts && npm run build",
+    "fetch-schema": "schemas/fetch.js"
+  },
+  "directories": {
+    "lib": "dist"
+  },
+  "jest": {
+    "preset": "@lerna-playground/jest-preset",
+    "testEnvironment": "node"
+  },
+  "files": [
+    "declarations",
+    "dist",
+    "types",
+    "src"
+  ],
+  "peerDependencies": {
+    "webpack": ">= 5",
+    "webpack-cli": ">= 4"
+  },
+  "dependencies": {
+    "@lerna-playground/react-typescript": "1.0.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.3",
+    "@types/mini-css-extract-plugin": "^2.4.0",
+    "@types/webpack": "^5.28.0",
+    "@types/webpack-dev-server": "^4.5.0",
+    "@types/webpack-env": "^1.16.3",
+    "@types/webpack-sources": "^3.2.0",
+    "axios": "^0.24.0",
+    "bundle-loader": "^0.5.6",
+    "css-loader": "^6.5.1",
+    "copy-webpack-plugin": "^10.2.0",
+    "css-minimizer-webpack-plugin": "^3.3.0",
+    "external-remotes-plugin": "1.0.0",
+    "file-loader": "6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "json-schema-to-typescript": "^10.1.5",
+    "less": "^4.1.2",
+    "less-loader": "^10.2.0",
+    "mini-css-extract-plugin": "^2.4.5",
+    "node-fqdn": "^1.1.1",
+    "pnp-webpack-plugin": "^1.7.0",
+    "react-refresh": "^0.11.0",
+    "react-refresh-typescript": "^2.0.3",
+    "resolve-url-loader": "^4.0.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "ts-pnp": "1.2.0",
+    "typescript": ">= 4",
+    "url-loader": "4.1.1",
+    "webpack": "^5.65.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-dev-server": "^4.6.0",
+    "webpack-livereload-plugin": "3.0.2",
+    "webpack-manifest-plugin": "4.0.2",
+    "webpack-sources": "^3.2.2",
+    "webpackbar": "^5.0.2",
+    "workbox-webpack-plugin": "6.4.2"
+  },
+  "devDependencies": {
+    "@lerna-playground/jest-preset": "file:../jest",
+    "webpack-cli": "^4.9.1"
+  }
+}
