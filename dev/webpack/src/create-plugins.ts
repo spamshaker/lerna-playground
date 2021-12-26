@@ -54,28 +54,29 @@ export const createPlugins = ({
       APP_NAME: JSON.stringify([scope, name].filter(Boolean).join('/')),
       'process.env.NODE_ENV': JSON.stringify(mode)
     }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: require.resolve(`react/umd/react.${mode}${getFilenamePostfix(isProduction)}.js`),
-          to: `js/react${getFilenamePostfix(isProduction)}.js`
-        },
-        {
-          from: require.resolve(`react-dom/umd/react-dom.${mode}${getFilenamePostfix(isProduction)}.js`),
-          to: `js/react-dom${getFilenamePostfix(isProduction)}.js`
-        },
-        {
-          from: require.resolve(`redux/dist/redux${getFilenamePostfix(isProduction)}.js`),
-          to: `js/redux${getFilenamePostfix(isProduction)}.js`
-        },
-        {
-          from: require.resolve(`react-redux/dist/react-redux${getFilenamePostfix(isProduction)}.js`),
-          to: `js/react-redux${getFilenamePostfix(isProduction)}.js`
-        },
-        {
-          from: require.resolve(`@reduxjs/toolkit/dist/redux-toolkit.umd${getFilenamePostfix(isProduction)}.js`),
-          to: `js/redux-toolkit${getFilenamePostfix(isProduction)}.js`
-        }
-      ]
-    })
+    !WEBPACK_SERVE &&
+      new CopyPlugin({
+        patterns: [
+          {
+            from: require.resolve(`react/umd/react.${mode}${getFilenamePostfix(isProduction)}.js`),
+            to: `js/react${getFilenamePostfix(isProduction)}.js`
+          },
+          {
+            from: require.resolve(`react-dom/umd/react-dom.${mode}${getFilenamePostfix(isProduction)}.js`),
+            to: `js/react-dom${getFilenamePostfix(isProduction)}.js`
+          },
+          {
+            from: require.resolve(`redux/dist/redux${getFilenamePostfix(isProduction)}.js`),
+            to: `js/redux${getFilenamePostfix(isProduction)}.js`
+          },
+          {
+            from: require.resolve(`react-redux/dist/react-redux${getFilenamePostfix(isProduction)}.js`),
+            to: `js/react-redux${getFilenamePostfix(isProduction)}.js`
+          },
+          {
+            from: require.resolve(`@reduxjs/toolkit/dist/redux-toolkit.umd${getFilenamePostfix(isProduction)}.js`),
+            to: `js/redux-toolkit${getFilenamePostfix(isProduction)}.js`
+          }
+        ]
+      })
   ].filter(Boolean) as Plugins;
