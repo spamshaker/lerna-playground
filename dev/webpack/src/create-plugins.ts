@@ -7,7 +7,7 @@ import { ConfigVariables, Plugins } from './types';
 import { getFilenamePostfix } from './utils';
 
 function getHTMLTemplate(WEBPACK_SERVE: boolean) {
-  const externals = WEBPACK_SERVE ? [] : ['react', 'react-dom'];
+  const externals = WEBPACK_SERVE ? [] : ['react', 'react-dom', 'redux', 'react-redux', 'redux-toolkit'];
   const extModules = externals.map(mod => `<script defer src="js/${mod}.js"></script>`).join('\n');
   return `
 <!doctype html>
@@ -57,12 +57,24 @@ export const createPlugins = ({
     new CopyPlugin({
       patterns: [
         {
-          from: require.resolve(`react/umd/react.${mode}.js`),
+          from: require.resolve(`react/umd/react.${mode}${getFilenamePostfix(isProduction)}.js`),
           to: `js/react${getFilenamePostfix(isProduction)}.js`
         },
         {
-          from: require.resolve(`react-dom/umd/react-dom.${mode}.js`),
+          from: require.resolve(`react-dom/umd/react-dom.${mode}${getFilenamePostfix(isProduction)}.js`),
           to: `js/react-dom${getFilenamePostfix(isProduction)}.js`
+        },
+        {
+          from: require.resolve(`redux/dist/redux${getFilenamePostfix(isProduction)}.js`),
+          to: `js/redux${getFilenamePostfix(isProduction)}.js`
+        },
+        {
+          from: require.resolve(`react-redux/dist/react-redux${getFilenamePostfix(isProduction)}.js`),
+          to: `js/react-redux${getFilenamePostfix(isProduction)}.js`
+        },
+        {
+          from: require.resolve(`@reduxjs/toolkit/dist/redux-toolkit.umd${getFilenamePostfix(isProduction)}.js`),
+          to: `js/redux-toolkit${getFilenamePostfix(isProduction)}.js`
         }
       ]
     })

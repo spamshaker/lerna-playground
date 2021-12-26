@@ -2,8 +2,12 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/node_modules/react-redux/src" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/node_modules/@reduxjs/toolkit" />
     <content url="file://$MODULE_DIR$/node_modules/@webpack-cli" />
+    <content url="file://$MODULE_DIR$/node_modules/react-redux" />
     <content url="file://$MODULE_DIR$/node_modules/typescript" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

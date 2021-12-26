@@ -7,7 +7,10 @@ export const createExternals = ({ env: { WEBPACK_SERVE } }: ConfigVariables): Co
     : {
         react: 'React',
         'react-dom': 'ReactDOM',
-        'object-assign': ['Object', 'assign']
+        'object-assign': ['Object', 'assign'],
+        redux: 'Redux',
+        'react-redux': 'ReactRedux',
+        '@reduxjs/toolkit': 'RTK'
         // 'react/jsx-dev-runtime': {
         //   commonjs: 'jsxDEV'
         // }
