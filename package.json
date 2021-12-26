@@ -9,7 +9,9 @@
     "@lerna-playground/eslint-config": "file:dev/eslint",
     "husky": "^7.0.4",
     "lerna": "^4.0.0",
-    "lint-staged": "^12.0.2"
+    "lint-staged": "^12.0.2",
+    "patch-package": "^6.4.7",
+    "npm-check-updates": "^12.0.5"
   },
   "husky": {
     "hooks": {
@@ -28,7 +30,9 @@
     "bootstrap": "npx lerna bootstrap --hoist",
     "build": "npx lerna run build --stream",
     "start": "npx lerna run start --parallel",
-    "test": "npx lerna run test --parallel -- -- --coverage"
+    "test": "npx lerna run test --parallel -- -- --coverage",
+    "check-updates": "ncu && lerna exec ncu",
+    "upgrade": "npm run check-updates -- -- -u"
   },
   "eslintConfig": {
     "extends": [

@@ -1,0 +1,30 @@
+diff --git a/node_modules/webpack-dev-server/lib/Server.js b/node_modules/webpack-dev-server/lib/Server.js
+index adcdb1c..3826a6e 100644
+--- a/node_modules/webpack-dev-server/lib/Server.js
++++ b/node_modules/webpack-dev-server/lib/Server.js
+@@ -795,7 +795,7 @@ class Server {
+           const attributes = [{ name: "commonName", value: "localhost" }];
+           const pems = selfsigned.generate(attributes, {
+             algorithm: "sha256",
+-            days: 30,
++            days: 365,
+             keySize: 2048,
+             extensions: [
+               {
+@@ -820,6 +820,16 @@ class Server {
+               {
+                 name: "subjectAltName",
+                 altNames: [
++                  {
++                    // type 2 is DNS
++                    type: 2,
++                    value: "*.my.dev",
++                  },
++                  {
++                    // type 2 is DNS
++                    type: 2,
++                    value: "my.dev",
++                  },
+                   {
+                     // type 2 is DNS
+                     type: 2,

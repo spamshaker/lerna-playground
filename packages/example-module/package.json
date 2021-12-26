@@ -24,7 +24,7 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "serve": "webpack serve",
-    "start": "webpack serve",
+    "start": "webpack serve --host=my.dev --port=3000",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
